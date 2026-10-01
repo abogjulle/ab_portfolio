@@ -20,9 +20,22 @@
   <body>
     <header class="hero" id="top">
       <nav class="site-nav" aria-label="Main navigation">
-        <a href="#animations">Animations</a>
-        <a href="#video">Video</a>
-        <a href="#about">About</a>
+        <button
+          class="site-nav-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="site-nav-links"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="site-nav-links" id="site-nav-links">
+          <a href="#animations">Animations</a>
+          <a href="#video">Video</a>
+          <a href="#about">About</a>
+        </div>
       </nav>
 
       <div class="hero-heading">
@@ -345,8 +358,7 @@
               <h2 id="about-title">About me</h2>
               <p>
                 For some time, Little Sir and I have been learning and improving
-                our skills in storytelling, animation, and graphic design. This
-                is where all our good energy goes.
+                our skills in storytelling, animation, and graphic design.
               </p>
             </div>
             <div class="previous-work">
@@ -511,6 +523,22 @@
               </p>
             </div>
           </div>
+
+          <div class="graphic-work">
+            <h3>
+              Graphic work<img
+                src="assets/understregning.svg"
+                alt=""
+                aria-hidden="true"
+              />
+            </h3>
+            <a
+              href="https://annebethfaurby.wixsite.com/littlesir"
+              target="_blank"
+              rel="noreferrer"
+              >annebethfaurby.wixsite.com/littlesir</a
+            >
+          </div>
         </div>
       </section>
     </main>
@@ -534,6 +562,29 @@
       </div>
     </footer>
     <script>
+      const siteNav = document.querySelector(".site-nav");
+      const siteNavToggle = document.querySelector(".site-nav-toggle");
+      const siteNavLinks = document.querySelectorAll(".site-nav-links a");
+
+      siteNavToggle.addEventListener("click", () => {
+        const isExpanded =
+          siteNavToggle.getAttribute("aria-expanded") === "true";
+        siteNavToggle.setAttribute("aria-expanded", String(!isExpanded));
+        siteNavToggle.setAttribute(
+          "aria-label",
+          isExpanded ? "Open navigation" : "Close navigation",
+        );
+        siteNav.classList.toggle("is-open", !isExpanded);
+      });
+
+      siteNavLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          siteNav.classList.remove("is-open");
+          siteNavToggle.setAttribute("aria-expanded", "false");
+          siteNavToggle.setAttribute("aria-label", "Open navigation");
+        });
+      });
+
       const videos = [...document.querySelectorAll("video")];
 
       videos.forEach((video) => {
