@@ -70,15 +70,6 @@ a {
   line-height: 1;
 }
 
-.site-nav-toggle {
-  display: none;
-}
-
-.site-nav-links {
-  display: flex;
-  gap: clamp(24px, 4vw, 64px);
-}
-
 .site-nav a {
   text-decoration: none;
   transition: color 160ms ease;
@@ -121,9 +112,9 @@ a {
 
 .hero h1 {
   margin: 0;
-  font-family: "Druk Wide", "Druk Wide Medium", var(--brand), sans-serif;
-  font-size: clamp(48px, 9.2vw, 132px);
-  font-weight: 500;
+  font-family: var(--brand);
+  font-size: clamp(86px, 10.4vw, 155px);
+  font-weight: 400;
   letter-spacing: 0;
   line-height: 0.84;
 }
@@ -234,26 +225,25 @@ a {
 
 .little-sir-note {
   position: absolute;
-  top: 650px;
+  top: 700px;
   left: 50%;
   right: auto;
   bottom: auto;
-  width: 435px;
-  height: 317px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
   margin: 0;
   transform: translateX(-50%);
 }
 
 .little-sir-bubble {
-  position: absolute;
-  z-index: 2;
-  top: 103px;
-  left: 0;
+  position: relative;
   display: grid;
+  flex: 0 0 240px;
   width: 240px;
   height: 102px;
   place-items: center;
-  transform: rotate(-2deg);
+  transform: rotate(-7deg);
 }
 
 .little-sir-bubble img {
@@ -271,16 +261,12 @@ a {
   font-family: var(--serif-note);
   font-size: 25px;
   white-space: nowrap;
-  transform: translateY(-12px);
 }
 
 .little-sir-video {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 210px;
-  width: 225px;
-  height: 317px;
+  position: relative;
+  flex: 0 0 161px;
+  height: 227px;
   object-fit: contain;
 }
 
@@ -518,8 +504,7 @@ a {
 
 .previous-work h3,
 .education h3,
-.skill-group h3,
-.graphic-work h3 {
+.skill-group h3 {
   margin: 0 0 15px;
   font-family: var(--serif-note);
   font-size: 50px;
@@ -700,19 +685,6 @@ a {
   font-size: 40px;
 }
 
-.graphic-work {
-  grid-column: 2;
-  grid-row: 4;
-  justify-self: start;
-  margin-left: 8%;
-}
-
-.graphic-work h3 {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 40px;
-}
-
 .skill-group:first-child {
   position: relative;
 }
@@ -723,13 +695,10 @@ a {
   left: 114px;
 }
 
-.skill-group h3 img,
-.graphic-work h3 img {
+.skill-group h3 img {
   display: block;
   max-width: none;
   height: auto;
-  transform: scaleY(0.5);
-  transform-origin: left center;
 }
 
 .skill-group li,
@@ -737,14 +706,6 @@ a {
   margin: 0;
   font-size: 14px;
   line-height: 1.7;
-}
-
-.graphic-work a {
-  display: block;
-  color: inherit;
-  font-size: 13px;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
 }
 
 .skill-group.language {
@@ -822,6 +783,10 @@ a {
     padding-left: 6vw;
   }
 
+  .hero h1 {
+    font-size: clamp(74px, 11vw, 105px);
+  }
+
   .intro-copy {
     font-size: 14px;
   }
@@ -878,59 +843,9 @@ a {
     top: 25px;
     right: 12.5%;
     display: grid;
-    font-size: 17px;
-  }
-
-  .site-nav-toggle {
-    display: grid;
-    width: 40px;
-    height: 40px;
-    justify-items: center;
-    align-content: center;
-    gap: 5px;
-    padding: 8px;
-    border: 0;
-    background: transparent;
-    color: var(--ink);
-    cursor: pointer;
-  }
-
-  .site-nav-toggle span {
-    display: block;
-    width: 23px;
-    height: 2px;
-    background: currentColor;
-    transition:
-      transform 160ms ease,
-      opacity 160ms ease;
-  }
-
-  .site-nav-toggle:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 2px;
-  }
-
-  .site-nav-links {
-    display: none;
     justify-items: end;
-    gap: 8px;
-    padding: 4px 0 10px;
-  }
-
-  .site-nav.is-open .site-nav-links {
-    display: grid;
-  }
-
-  .site-nav.is-open .site-nav-toggle span:first-child {
-    transform: translateY(7px) rotate(45deg);
-  }
-
-  .site-nav.is-open .site-nav-toggle span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .site-nav.is-open .site-nav-toggle span:last-child {
-    transform: translateY(-7px) rotate(-45deg);
+    gap: 4px;
+    font-size: 17px;
   }
 
   .hero-heading {
@@ -944,6 +859,7 @@ a {
   }
 
   .hero h1 {
+    font-size: clamp(40px, 11vw, 56px);
     line-height: 0.91;
   }
 
@@ -956,10 +872,10 @@ a {
     position: relative;
     top: auto;
     left: auto;
-    align-self: center;
+    align-self: flex-end;
     min-width: 0;
     width: 65%;
-    margin: -8px 0 8px;
+    margin: -8px -7% 8px 0;
     transform: none;
   }
 
@@ -988,37 +904,31 @@ a {
   }
 
   .little-sir-note {
-    position: relative;
-    top: auto;
-    left: auto;
-    right: auto;
-    bottom: auto;
-    align-self: center;
-    width: min(380px, 100vw);
-    height: 341px;
+    position: static;
+    align-self: flex-start;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 4px;
     order: 4;
-    margin: 26px 0 0;
+    margin: 26px 0 0 -10px;
     transform: none;
   }
 
   .little-sir-bubble {
-    top: 100px;
-    width: min(100%, 195px);
+    flex: 0 1 240px;
+    width: min(100%, 240px);
     height: auto;
     aspect-ratio: 240 / 102;
     max-width: 100%;
   }
 
   .little-sir-bubble blockquote {
-    font-size: 17px;
-    transform: translateY(-10px);
+    font-size: 20px;
   }
 
   .little-sir-video {
-    top: 24px;
-    left: min(155px, calc(100% - 225px));
-    width: 225px;
-    height: 317px;
+    flex: 0 0 161px;
+    height: 227px;
   }
 
   .section {
@@ -1192,8 +1102,7 @@ a {
 
   .previous-work h3,
   .education h3,
-  .skill-group h3,
-  .graphic-work h3 {
+  .skill-group h3 {
     margin-bottom: 10px;
     font-size: 30px;
   }
@@ -1230,20 +1139,6 @@ a {
     grid-template-columns: 1fr 1fr;
     gap: 28px 14px;
     padding-top: 0;
-  }
-
-  .graphic-work {
-    order: 6;
-    align-self: flex-end;
-    margin-left: 0;
-  }
-
-  .graphic-work h3 {
-    font-size: 30px;
-  }
-
-  .graphic-work a {
-    font-size: 11px;
   }
 
   .skill-group h3 {
